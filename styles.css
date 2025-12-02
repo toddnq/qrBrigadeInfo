@@ -1,0 +1,106 @@
+
+/* styles.css - Styling for the single-page QR info site */
+/* Primary color: #1f4e79 (navy blue) */
+:root{
+  --primary: #006837;
+  --muted:#6b7b89;
+  --max-width:900px;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0;
+  color:#0b1b2a;
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding-bottom:40px;
+}
+.banner{
+  position:relative;
+  text-align:left;
+  color:#fff;
+}
+.banner-img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+  max-height:240px;
+  filter:contrast(0.9);
+}
+.banner-text{
+  position: absolute;
+  left:16px;
+  bottom:12px;
+  color:#fff;
+  text-shadow:0 2px 6px rgba(0,0,0,0.4);
+}
+.banner-text h1{
+  margin:0;
+  font-size:20px;
+  letter-spacing:0.06em;
+  font-weight:700;
+}
+.banner-text .subtitle{margin:6px 0 0;font-size:13px;opacity:0.95;}
+
+/* Container */
+.container{
+  max-width:var(--max-width);
+  margin:16px auto;
+  padding:0 16px;
+}
+
+/* Card */
+.card{
+  background: #fff;
+  border:1px solid #e6eef6;
+  border-left:6px solid var(--primary);
+  padding:14px 16px;
+  margin-bottom:12px;
+  border-radius:var(--radius);
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  box-shadow: 0 2px 8px rgba(31,78,121,0.04);
+}
+.card h2{margin:0;font-size:15px;color:var(--primary)}
+.card p, .card ul, .card ol{margin:8px 0 0;padding-left:18px;color:#172b3f;font-size:14px}
+.icon{width:40px;height:40px;flex:0 0 40px}
+
+/* lists */
+ul,ol{padding-left:18px}
+.org-list li, .contact-list li{margin:6px 0}
+
+/* Actions */
+.actions{display:flex;gap:10px;justify-content:center;margin:16px 0}
+.btn{background:#fff;border:1px solid #cfe0ef;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+/* QR hint and footer */
+.qr-hint{text-align:center;color:var(--muted);font-size:13px;margin-top:8px}
+.footer{text-align:center;color:#98a6b3;font-size:12px;margin-top:18px}
+
+/* Print styles */
+@media print{
+  body{background:#fff;color:#000}
+  .banner-img{max-height:140px}
+  .actions, .qr-hint, .footer{display:none}
+  .card{border-left:6px solid #000}
+}
+
+/* Responsive */
+@media (min-width:700px){
+  .banner-text h1{font-size:28px}
+  .banner-text .subtitle{font-size:14px}
+  .card{padding:18px}
+  .icon{width:48px;height:48px}
+}
+
+@media (min-width:1000px){
+  .container{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .actions{grid-column:1/-1}
+}
